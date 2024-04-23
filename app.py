@@ -1,15 +1,16 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/recruto/', methods=['GET'])
 def hello_recruto():
     name = request.args.get('name')
     message = request.args.get('message')
     if name and message:
-        return f"Hello {name}! {message}!"
+        greeting = f"Привет {name}! {message}!"
     else:
-        return "Hello Recruto! Давай дружить!"
+        greeting = "Привет Recruto! Давай дружить!"
+    return render_template('main.html', greeting=greeting)
 
 if __name__ == '__main__':
     app.run(debug=True)
