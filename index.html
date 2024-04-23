@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <title>Hello Recruto!</title>
   </head>
   <body>
-    <main>
-        <h1>{{ greeting }}</h1>
-    </main>
+    <py-script>
+      from flask import Flask, request, render_template
+
+      app = Flask(__name__, template_folder='')
+
+      @app.route('/', methods=['GET'])
+      def hello_recruto():
+        name = request.args.get('name')
+        message = request.args.get('message')
+        if name and message:
+            greeting = f"Привет {name}! {message}!"
+        else:
+            greeting = "Привет Recruto! Давай дружить!"
+        return render_template('index.html', greeting=greeting)
+
+      if __name__ == '__main__':
+        app.run(debug=True)
+    </py-script>
   </body>
 </html>
