@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__, template_folder='')
 
-@app.route('/scintillating-cheesecake-90b00c.netlify.app/', methods=['GET'])
+@app.route('/HeeloRecruto/', methods=['GET'])
 def hello_recruto():
     name = request.args.get('name')
     message = request.args.get('message')
