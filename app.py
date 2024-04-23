@@ -10,7 +10,7 @@ def hello_recruto():
         greeting = f"Привет {name}! {message}!"
     else:
         greeting = "Привет Recruto! Давай дружить!"
-    return render_template('main.html', greeting=greeting)
+    return render_template('index.html', greeting=greeting)
 
 if __name__ == '__main__':
     app.run(debug=True)
