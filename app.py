@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__, template_folder='')
 
-@app.route('/recruto/', methods=['GET'])
+@app.route('/fisshkaa.github.io/recruto/', methods=['GET'])
 def hello_recruto():
     name = request.args.get('name')
     message = request.args.get('message')
